@@ -2,6 +2,8 @@
 <launch>    
 
   <arg name="robot_id"                  value="1"/>
+  
+  <arg name="quadrant"                  value="1"/>
 
   <param name="gazebo"                  value="false"          type="bool"/>
   <param name="gazebo_robot_name"       value="robotis_op3"/>
@@ -9,10 +11,17 @@
   <!-- Movement package -->
   <include file="$(find movement_pkg)/launch/movement.launch">
     <arg name="robot_id" value="$(arg robot_id)"/>
+    <arg name="quadrant" value="$(arg quadrant)"/>
   </include>
     
   <!-- Vision package -->
   <include file="$(find vision_pkg)/launch/vision.launch">
+    <arg name="robot_id" value="$(arg robot_id)"/>
+    <arg name="quadrant" value="$(arg quadrant)"/>
+  </include>
+    
+  <!-- Localization package -->
+  <include file="$(find localization_pkg)/launch/localization.launch">
     <arg name="robot_id" value="$(arg robot_id)"/>
   </include>
 
