@@ -1,9 +1,9 @@
 <?xml version="1.0" ?>
 <launch>    
 
-  <arg name="robot_id"                  value="1"/>
+  <arg name="robot_id"                  value="2"/>
   
-  <arg name="quadrant"                  value="1"/>
+  <arg name="quadrant"                  value="3"/>
 
   <param name="gazebo"                  value="false"          type="bool"/>
   <param name="gazebo_robot_name"       value="robotis_op3"/>
@@ -21,8 +21,9 @@
   </include>
     
   <!-- Localization package -->
-  <include file="$(find localization_pkg)/launch/localization.launch">
+  <include file="$(find localization_pkg)/launch/nav_footstep_planner.launch">
     <arg name="robot_id" value="$(arg robot_id)"/>
+    <arg name="quadrant" value="$(arg quadrant)"/>
   </include>
 
 </launch>
